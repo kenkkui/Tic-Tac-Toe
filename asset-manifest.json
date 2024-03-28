@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ab930560.css",
+    "main.js": "/static/js/main.01018f47.js",
+    "static/media/TIfull-board.png": "/static/media/TIfull-board.bc402aa6fe1709279e67.png",
+    "index.html": "/index.html",
+    "main.ab930560.css.map": "/static/css/main.ab930560.css.map",
+    "main.01018f47.js.map": "/static/js/main.01018f47.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab930560.css",
+    "static/js/main.01018f47.js"
+  ]
+}
