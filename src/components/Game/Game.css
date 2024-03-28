@@ -1,0 +1,221 @@
+:root {
+  --white-005: rgba(255, 255, 255, 0.05);
+  --pink-08: rgba(185, 40, 127, 0.8);
+  --purple-08: rgba(10, 7, 191, 0.8);
+  --green-08: rgba(250, 255, 0, 0.8);
+
+  --grey-input-editing: #808080;
+}
+
+@keyframes filter-shadow {
+  from {
+    filter: drop-shadow( 4px 4px 4px var(--white-05));
+  }
+
+  25% {
+    filter: drop-shadow( 2px 6px 4px var(--green-08));    
+  }
+
+  50% {
+    filter: drop-shadow( 4px 6px 4px var(--pink-08));
+  }
+
+  75% {
+    filter: drop-shadow( 6px 2px 4px var(--purple-08));
+  }
+
+  to {
+    filter: drop-shadow( 4px 4px 4px var(--white-05));
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    translate: -30px;
+    opacity: 0.2;
+    filter: blur(4px);
+  }
+
+  to {
+    translate: 0;
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    translate: 30px;
+    opacity: 0.2;
+    filter: blur(4px);
+  }
+
+  to {
+    translate: 0;
+    opacity: 1;
+  filter: none;
+  }
+}
+
+.game-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111111;
+}
+
+.game-info {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#player-one {
+  left: 50px;
+  opacity: 0;
+  animation: slide-in-left 0.6s cubic-bezier(0, 0, 0.25, 1) forwards;
+  animation-delay: 600ms;
+}
+
+#player-two {
+  opacity: 0;
+  right: 50px;
+  animation: slide-in-right 0.6s cubic-bezier(0, 0, 0.25, 1) forwards;
+  animation-delay: 700ms;
+}
+
+
+#player-one,
+#player-two {
+  z-index: 100;
+  position: absolute;
+  top: 35px;
+  width: 320px;
+  height: 60px;
+  
+
+  
+  background: transparent;
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+  box-shadow: 3px 6px 12px rgba(255, 255, 255, 0.08);
+}
+
+.player-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#player-one::after,
+#player-two::after {
+  content: "";
+  position: absolute;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background: #171717;
+  opacity: 0.4;
+  z-index: -10;
+}
+
+@keyframes turn-indicator {
+  to {
+    color: var(--green-08);
+    filter: drop-shadow(1px 1px 6px rgba(230, 255, 10, 0.4));
+  }
+}
+
+.game-info.highlight-turn .active .symbol {
+  animation: turn-indicator linear forwards 0.25s;
+}
+
+#player-one span,
+#player-two span {
+  display: flex;
+  gap: 30px;
+}
+
+.name {
+  z-index: 1000;
+  font-size: 24px;
+}
+
+.name.input {
+  width: 180px;
+  padding: 6px 12px;
+  
+  font-family: "Space Mono", monospace;
+  background: none;
+  border: 1px solid var(--white-border);
+  border-radius: 6px;
+
+  transition: 0.25s;
+}
+
+.name.input:focus {
+  outline: none;
+}
+
+.name.input::placeholder {
+  color: #ffffff;
+}
+
+.name.input.editing::placeholder {
+  color: var(--grey-input-editing);
+}
+
+.edit,
+.save {
+  z-index: 1000;
+  transition: 0.15s;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  color: #808080;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+}
+
+.edit:active,
+.save:active {
+  scale: 0.9;
+}
+
+.save {
+  scale: 1.1;
+  color: #6ac758;
+}
+
+.save:hover {
+  scale: 1.2;
+
+  animation: filter-shadow 10s linear infinite;
+}
+
+.edit:hover {
+  color: #ffffff;
+  scale: 1.1;
+  
+  animation: filter-shadow 10s linear infinite;
+}
+
+.symbol {
+  translate: -10px 5px;
+  font-family: "Comico", serif;
+  z-index: 1;
+  font-size: 26px;
+}

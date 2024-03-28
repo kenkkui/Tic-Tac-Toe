@@ -1,0 +1,88 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    translate: -50px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0;
+    filter: blur(8px);
+  }
+}
+
+@keyframes title-in {
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+
+.intro-page {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  z-index: 10;
+}
+
+.intro-text > img {
+  opacity: 0;
+  filter: blur(3px);
+  
+  animation: title-in forwards 1s ease-out;
+  animation-delay: 800ms;
+}
+
+.document-title {
+  font-family: "Comico", sans-serif;
+  font-size: 25px;
+  opacity: 0;
+  filter: blur(3px);
+
+  animation: title-in 1s forwards ease-out;
+  animation-delay: 500ms;
+}
+
+.my-name {
+  font-family: "Zodiak Variable", serif;
+  font-size: 22px;
+  opacity: 0;
+  filter: blur(3px);
+
+  animation: title-in forwards 1s ease-out;
+  animation-delay: 1100ms;
+}
+
+.illustration-wrapper {
+  animation: fade-in 0.5s cubic-bezier(0, 0, 0, 1) forwards;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.game-intro-illustration {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.game-intro-illustration img {
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0.1;
+}

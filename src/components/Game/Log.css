@@ -1,0 +1,23 @@
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    translate: -35px;
+  }
+
+  to {
+    opacity: 1;
+    filter: none;
+    translate: 0;
+  }
+}
+
+#log-container {
+  position: absolute;
+  bottom: 35px;
+  right: 50px;
+}
+
+#log {
+  animation: slide-in 0.25s cubic-bezier(0, 0, 0, 1) forwards;
+}
