@@ -69,7 +69,7 @@ function Game() {
   
   const winner = deriveWinner(gameBoard, players)
 
-  const hasDraw = gameTurn.length == 9 && !winner;
+  const hasDraw = gameTurn.length === 9 && !winner;
 
   function playerTurnFun(colIndex, rowIndex) {
     setGameTurn((prevValue) => {
